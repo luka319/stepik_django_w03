@@ -89,9 +89,20 @@ def vacancies(request, ): #– Все вакансии списком   /vacanci
     # return HttpResponse("vacncies здесь будут все компании или здесь будет специализация", )
 
 
-def vacancies_category(request, category): #– Вакансии по специализации /vacancies/cat/frontend
+def vacancies_category(request, category):
+    #– Вакансии по специализации /vacancies/cat/frontend
+    # vacancy_cat = Vacancy.objects.all()
+    vacancy_cat2 = Vacancy.objects.filter(speciality__code=category)
 
-    return render(request, "work/vacancies.html", )
+    spec = Speciality.objects.all()
+    spec_dict = {}
+    for spec_ in spec:
+        spec_dict[spec_.code] = spec_.title
+    category = spec_dict[category]
+    return render(request, "work/vacancies.html", context={
+        'vacancy_all': vacancy_cat2,
+        'category':category,
+    })
     # return HttpResponse("vacancies_cat_frontend здесь будут все компании или здесь будет специализация", )
 
 def companies(request, id_): #– Карточка компании  /companies/345

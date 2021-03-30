@@ -85,5 +85,25 @@ for vacancy in vacancy_all:
     print(f"{vacancy.company.name=}")
 
 
+#vacancy_cat = Vacancy.objects.all()
+vacancy_cat = Vacancy.objects.filter(speciality__code=="backend")
+#Team.objects.filter(name="Tutshill Tornados")
+for vacancy in vacancy_cat:
+    #if vacancy.speciality.title=="backend":
+       print(f"{vacancy.title=}")            
+       print(f"{vacancy.skills=}")           
+       print(f"{vacancy.salary_min=}")       
+       print(f"{vacancy.salary_max=}")       
+       print(f"{vacancy.published_at=}")     
+       print(f"{vacancy.speciality=}")       
+       print(f"{vacancy.company=}")          
+       print(f"{vacancy.speciality.title=}") 
+       print(f"{vacancy.company.name=}")     
+    
+
+back = Vacancy.objects.filter(speciality__code="backend")
+print(f"{back =}")
+print(f"{back.count() =}")
+
 
 
