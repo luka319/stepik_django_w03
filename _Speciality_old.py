@@ -55,8 +55,7 @@ print(f"{company_title_employee_count =}")
 
 #=============================================
 company_count = {}
-comp_id_title = company_id_title_dict
-for spec2 in comp_id_title.values():
+for spec2 in spec_dict.keys():
     print(f"{spec2 =}")
     code = Vacancy.objects.filter(company__name=spec2)
     print(f"{code.count() =}")
@@ -68,8 +67,24 @@ for spec2 in comp_id_title.values():
 
 print(f"{company_count =}")
 
-#print(f"{company_title_employee_count =}")
-print("=%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
-#print(f"{company_id_title_dict =}")
+print(f"{company_title_employee_count =}")
+
+
+"""
+company_spec_count = {}
+for spec2 in company_id_title_dict.keys():
+    print(f"{spec2 =}")
+    code = Vacancy.objects.filter(company__name=spec2)
+    print(f"{code.count() =}")
+    employee_count = code.employee_count
+    company_spec_count[spec2] = employee_count
+
+    #spec_count.setdefault(code, 0)
+    #spec_count[code] = spec_count[code] + 1
+
+print(f"{company_spec_count =}")
+"""
+
+
 
 
