@@ -58,9 +58,9 @@ def main_view(request): # – Главная  /
     company_count = {}
     comp_id_title = company_id_title_dict
     for spec2 in comp_id_title.values():
-        print(f"{spec2 =}")
+        # print(f"{spec2 =}")
         code = Vacancy.objects.filter(company__name=spec2)
-        print(f"{code.count() =}")
+        # print(f"{code.count() =}")
         code_count = code.count()
         company_count[spec2] = code_count
     # print(f"{company_count =}")
@@ -73,8 +73,19 @@ def main_view(request): # – Главная  /
     # return HttpResponse("main_view здесь будут все компании или здесь будет специализация", )
 
 def vacancies(request, ): #– Все вакансии списком   /vacancies
+    vacancy_all = Vacancy.objects.all()
+    # for vacancy in vacancy_all:
+    #     vacancy_title = vacancy.title
+    #     vacancy_skills = vacancy.skills
+    #     vacancy_salary_min = vacancy.salary_min
+    #     vacancy_salary_max = vacancy.salary_max
+    #     vacancy_published_at = vacancy.published_at
+    #     print(f"{vacancy.speciality.title=}")
+    #     print(f"{vacancy.company.name=}")
 
-    return render(request, "work/vacancies.html", )
+    return render(request, "work/vacancies.html", context={
+        'vacancy_all': vacancy_all,
+    })
     # return HttpResponse("vacncies здесь будут все компании или здесь будет специализация", )
 
 

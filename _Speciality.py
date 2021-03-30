@@ -72,4 +72,18 @@ print(f"{company_count =}")
 print("=%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 #print(f"{company_id_title_dict =}")
 
+vacancy_all = Vacancy.objects.all()
+for vacancy in vacancy_all:
+    print(f"{vacancy.title=}")
+    print(f"{vacancy.skills=}")
+    print(f"{vacancy.salary_min=}")
+    print(f"{vacancy.salary_max=}")
+    print(f"{vacancy.published_at=}")
+    print(f"{vacancy.speciality=}")
+    print(f"{vacancy.company=}")
+    print(f"{vacancy.speciality.title=}")
+    print(f"{vacancy.company.name=}")
+
+
+
 
