@@ -1,6 +1,0 @@
-﻿
-{% autoescape off %} {{ content }} {% end autoescape %} 
-
- {{ vacancy.text|safe }}
-
-  в vacancy.text html-разметка, чтобы вывести - надо ...|safe

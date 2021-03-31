@@ -16,18 +16,30 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from work.views import main_view
-from work.views import vacancies #– Все вакансии списком   /vacancies
-from work.views import vacancies_category #– Вакансии по специализации /vacancies/cat/frontend
-from work.views import companies #– Карточка компании  /companies/345
-from work.views import vacancy #– Одна вакансия /vacancies/22
+from work.views import vacancies  # Все вакансии списком   /vacancies
+from work.views import vacancies_category
+# Вакансии по специализации /vacancies/cat/frontend
+from work.views import companies  # Карточка компании  /companies/345
+from work.views import vacancy  # Одна вакансия /vacancies/22
+
+from work.views import custom_handler400, custom_handler403
+from work.views import custom_handler404, custom_handler500
+# stepik django 1.24.10 https://stepik.org/lesson/356368/step/10?unit=340485
+
+handler400 = custom_handler400
+handler403 = custom_handler403
+handler404 = custom_handler404
+handler500 = custom_handler500
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('vacancies/', vacancies), #– Все вакансии списком   /vacancies
-    path('', main_view ), # – Главная  /
+    path('vacancies/', vacancies),  # Все вакансии списком   /vacancies
+    path('', main_view),  # Главная  /
 
-    path('vacancies/cat/<str:category>/', vacancies_category ), #– Вакансии по специализации /vacancies/cat/frontend
-    path('companies/<int:id_>/', companies), #– Карточка компании  /companies/345
-    path('vacancies/<int:id_>/', vacancy), #– Одна вакансия /vacancies/22
+    path('vacancies/cat/<str:category>/', vacancies_category),
+    # Вакансии по специализации /vacancies/cat/frontend
+    path('companies/<int:id_>/', companies),
+    # Карточка компании  /companies/345
+    path('vacancies/<int:id_>/', vacancy),  # Одна вакансия /vacancies/22
 ]
