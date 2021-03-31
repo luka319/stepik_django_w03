@@ -105,5 +105,37 @@ back = Vacancy.objects.filter(speciality__code="backend")
 print(f"{back =}")
 print(f"{back.count() =}")
 
+company_ = Company.objects.filter(id=1)
+"""
+company_id_title_dict = {}
+for spec_ in company_:
+     company_id_title_dict[spec_.id_str] = spec_.name
+
+print(f"{company_id_title_dict =}")
+"""
+print(f"{company_ =}")
+for z in company_:
+    print(f"{z=}")
+    print(f"{z.name=}")
+
+#company_code = Vacancy.objects.filter(company__id_str=id_)
+company_code = Vacancy.objects.filter(company__id_str="1")
+
+#back = Vacancy.objects.filter(speciality__code="backend")
+
+print(f"{company_code.count() =}")        
+
+for vacancy in company_code:
+    print(f"{vacancy.speciality.code =}")         
+    #print(f"{vacancy.skills =}")         
+    #print(f"{vacancy.text =}")           
+    #print(f"{vacancy.salary_min =}")     
+    #print(f"{vacancy.salary_max =}")     
+    #print(f"{vacancy.published_at =}")   
+
+
+
+
+
 
 
