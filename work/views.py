@@ -131,6 +131,19 @@ def companies(request, id_): #– Карточка компании  /companies/
     # return HttpResponse("companies здесь будут все компании или здесь будет специализация", )
 
 def vacancy(request, id_): #– Одна вакансия /vacancies/22
+    vacancy_code = Vacancy.objects.filter(id_str=id_)
 
-    return render(request, "work/vacancy.html", )
+    # for vacancy in vacancy_code:
+    #     print(f"{vacancy.speciality.code =}")
+    #     print(f"{vacancy.company.name =}")
+    #     print(f"{vacancy.title =}")
+    #     print(f"{vacancy.skills =}")
+    #     print(f"{vacancy.text =}")
+    #     print(f"{vacancy.salary_min =}")
+    #     print(f"{vacancy.salary_max =}")
+    #     print(f"{vacancy.published_at =}")
+
+    return render(request, "work/vacancy.html", context={
+        'vacancy_code':vacancy_code,
+    })
     # return HttpResponse("vacancies_id здесь будут все компании или здесь будет специализация", )

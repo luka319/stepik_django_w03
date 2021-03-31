@@ -134,6 +134,20 @@ for vacancy in company_code:
     #print(f"{vacancy.published_at =}")   
 
 
+vacancy_code = Vacancy.objects.filter(id_str="1")
+
+for vacancy in vacancy_code:
+    print(f"{vacancy.speciality.code =}")         
+    print(f"{vacancy.company.name =}")         
+    print(f"{vacancy.title =}")         
+    print(f"{vacancy.skills =}")         
+    print(f"{vacancy.text =}")           
+    print(f"{vacancy.salary_min =}")     
+    print(f"{vacancy.salary_max =}")     
+    print(f"{vacancy.published_at =}")   
+    #
+    print(f"{vacancy.company.location =}")         
+    print(f"{vacancy.company.employee_count =}") 
 
 
 
